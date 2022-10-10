@@ -1,0 +1,11 @@
+.vscode
+.pytest_cache
+venv
+__pycache__
+node_modules
+frontend/node_modules
+dist
+media
+.env
+.dockerignore
+docker-compose.debug.yml
