@@ -1,32 +1,34 @@
 import React from "react";
-import { GrFacebook, GrInstagram, GrTwitter } from "react-icons/gr";
-
+import { GrMail, GrGithub, GrResume } from "react-icons/gr";
+import customStyles from './custom.css'
 const Socials = () => {
-  const facebookURL = "https://www.facebook.com/";
-  const instagramURL = "http://instagram.com/";
-  const twitterURL = "https://twitter.com/";
-
+  const gmailUrl = "mailto:darkbear0112@gmail.com/";
+  const cvUrl = "https://cvdesignr.com/p/631e652eaef58";
+  const githubUrl = "https://github.com/DarkBear0121";
+  const soical_icon_class = {
+    width:"400%"
+  }
   return (
-    <div className="social navbar-item-right">
-      <button
-        onClick={() => (window.location.href = facebookURL)}
+    <div className="social navbar-item-right" style={soical_icon_class}>
+      <a
+        className="social-button"
+        href={gmailUrl}
+      >
+        <GrMail />
+      </a>
+      <a
+        // href={() => (window.location.href = telegramUrl)}
+        href={cvUrl}
         className="social-button"
       >
-        <GrFacebook />
-      </button>
-
-      <button
-        onClick={() => (window.location.href = instagramURL)}
+        <GrResume />
+      </a>
+      <a
+        href={githubUrl}
         className="social-button"
       >
-        <GrInstagram />
-      </button>
-      <button
-        onClick={() => (window.location.href = twitterURL)}
-        className="social-button"
-      >
-        <GrTwitter />
-      </button>
+        <GrGithub />
+      </a>
     </div>
   );
 };

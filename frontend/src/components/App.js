@@ -17,10 +17,6 @@ import Signup from "./auth/Signup";
 import Login from "./auth/Login";
 import Logout from "./auth/Logout";
 import User from "./user/User";
-import SiteMap from "./Sitemap";
-import Privacy from "./Privacy";
-import License from "./License";
-import Terms from "./Terms";
 import ScrollToTop from "./ScrollToTop";
 
 const App = () => {
@@ -52,10 +48,6 @@ const App = () => {
             <Route path="/delete/:uid/:token" component={DeleteAccount} />
             <Route path="/posts" component={Posts} />
             <Route path="/post/:slug" component={PostDetail} />
-            <Route path="/sitemap" component={SiteMap} />
-            <Route path="/license" component={License} />
-            <Route path="/privacy" component={Privacy} />
-            <Route path="/terms" component={Terms} />
             {/* Error pages */}
             <Route path="/500" component={InternalServer} status={500} />
             <Route path="*" component={NotFound} status={404} />
