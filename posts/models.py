@@ -18,7 +18,9 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(auto_now=True)
     is_public = models.BooleanField(default=False)
-
+    rental_start = models.DateTimeField()
+    rental_end = models.DateTimeField()
+    state = models.IntegerField(default=0)
     objects = PostObjects()
 
     class Meta:

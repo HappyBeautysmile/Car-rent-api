@@ -20,7 +20,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     # Admin
-    # path('grappelli/', include('grappelli.urls')),
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     # API Docs
     path('api/', schema_view.with_ui('redoc',
@@ -28,7 +28,6 @@ urlpatterns = [
     # Apps
     path('api/posts/', include('posts.urls')),
     path('api/comments/', include('comments.urls')),
-    # path('api/rents/', include('rents.urls')),
     path('api/user/', include('users.urls')),
     # Tokens
     path('api/token/', TokenObtainPairView.as_view()),

@@ -23,6 +23,9 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('edited_at', models.DateTimeField(auto_now=True)),
                 ('is_public', models.BooleanField(default=False)),
+                ('state', models.IntegerField(default=0)),
+                ('rental_start', models.DateTimeField()),
+                ('rental_end', models.DateTimeField()),
             ],
             options={
                 'ordering': ['-created_at'],

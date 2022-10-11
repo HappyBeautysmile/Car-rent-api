@@ -47,3 +47,17 @@ class PostDetail(APIView):
 
         data = PostSerializer(post).data
         return Response(data, status=status.HTTP_200_OK)
+
+# class RentCar(APIView):
+#     """
+#     Edit Post
+
+#     lend car.
+#     """
+
+#     @swagger_auto_schema(responses={200: PostSerializer(), 404: openapi.Response(description='Not Found')})
+#     def post(self, request: Request, slug: str, format=None):
+#         post = get_object_or_404(Post, slug=slug)
+
+#         data = PostSerializer(post).data
+#         return Response(data, status=status.HTTP_200_OK)
