@@ -5,7 +5,7 @@ import Pagination from "../Pagination";
 import PropTypes from "prop-types";
 
 const initialData = Object.freeze({
-  description: "",
+  body: "",
 });
 
 const Comments = ({ slug }) => {
@@ -59,7 +59,7 @@ const Comments = ({ slug }) => {
 
     connection
       .post(`comments/${slug}/send/`, {
-        description: formData.description,
+        body: formData.body,
       })
       .then(() => {
         setCommentCreated(true);
@@ -80,30 +80,30 @@ const Comments = ({ slug }) => {
       )}
       <>
         <form className="comment-form" onSubmit={handleSubmit} noValidate>
-          <label htmlFor="description">
-            {error.description && <span className="invalid-value">{error.description}</span>}
+          <label htmlFor="body">
+            {error.body && <span className="invalid-value">{error.body}</span>}
             {error.detail && (
               <span className="invalid-value">{error.detail}</span>
             )}
           </label>
           <textarea
-            id="description"
-            name="description"
+            id="body"
+            name="body"
             ref={textarea}
             onChange={handleChange}
             placeholder="Write your own comment here..."
             maxLength="255"
             rows={4}
             style={
-              error.description || countdown
+              error.body || countdown
                 ? { borderColor: "var(--danger)" }
                 : { borderColor: "var(--secondary)" }
             }
           />
-          <p className="info">{formData.description.length} / 255</p>
-          <button className="animated-button" type="submit" style={{borderRadius:"5px" ,padding:"0:30px",width:"200px"}}>
+          <p className="info">{formData.body.length} / 255</p>
+          <button className="animated-button" type="submit">
             <span>
-              <strong>Rent</strong>
+              <strong>Comment</strong>
             </span>
           </button>
         </form>

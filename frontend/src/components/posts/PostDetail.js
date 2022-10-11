@@ -18,7 +18,11 @@ const PostDetail = () => {
   const slug = location.pathname.split("/")[2];
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date() );
+  const [error, setError] = useState({});
+
   useEffect(() => {
+    setError({});
+
     connection
       .get(`posts/${slug}/`)
       .then((res) => {
@@ -38,17 +42,17 @@ const PostDetail = () => {
       alert("please choose date correctly!");
     }
     else{
-
-    }
-    connection
+      connection
       .post(`comments/${slug}/send/`, {
-        description: "Yeah, That's it!",
+        body: "Yeah, That's it!",
       })
       .then(() => {
       })
       .catch((err) => {
         setError(err.response.data);
       });
+    }
+   
   };
 
   const formatDate = (date) => {
@@ -66,7 +70,7 @@ const PostDetail = () => {
     <div className="post">
       <img src={post.thumbnail}  style={{width:"100%" ,height:"100%"}}/>
       <h1>{post.title}</h1>
-        <Tags values={post.tags} />
+        <Tags values={post.tags}  />
       <h3>per day from : <span style={{color:"blue"}}>$ 50 *</span></h3>
       <div className="post-info">
         <img src={post.author.avatar} className="avatar-medium" />
@@ -81,14 +85,14 @@ const PostDetail = () => {
         <legend >Description:</legend>
         <div
           className="post-body" 
-          dangerouslySetInnerHTML={{ __html: `${post.description}` }}
+          dangerouslySetInnerHTML={{ __html: `${post.body}` }}
         ></div>
 
       </fieldset>
       <form className="comment-form" onSubmit={handleSubmit} noValidate>
         <div style={{display:"flex"}}>
           <div style={{flex:"50%"}}>
-              <spqn style={{fontSize:'20px'}}>StartDate:</spqn>
+              <span style={{fontSize:'20px'}}>StartDate:</span>
               <DatePicker
                 onChange={(date) => setStartDate(date)}
                 selected={startDate}
@@ -98,7 +102,7 @@ const PostDetail = () => {
               />
           </div>
           <div style={{flex:"50%"}}>
-            <spqn style={{fontSize:'20px'}}>EndDate:</spqn>
+            <span style={{fontSize:'20px'}}>EndDate:</span>
             <DatePicker
                 onChange={(date) => setEndDate(date)}
                 selected={endDate}
@@ -115,13 +119,13 @@ const PostDetail = () => {
           </button>
       </form>
 
-      {/* <div className="post-comments">
+      <div className="post-comments">
         <Suspense fallback={<h2>Loading comments...</h2>}>
           <h2>Rent</h2>
           <Comments slug={slug} />
         
         </Suspense>
-      </div> */}
+      </div>
     </div>
   );
 };

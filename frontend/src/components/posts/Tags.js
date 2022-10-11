@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 const Tags = ({ values }) => {
   return (
     <div className="tags">
+       <p style={{fontSize:"30px"}}> Type:
       {values.map((value) => {
         return (
-          <p style={{fontSize:"30px"}}>
-            Type:<span className="tag" key={value.id}>
+           <span className="tag" key={value.id}>
             {value.name}
           </span>
-          </p>
         );
       })}
+      </p>
     </div>
   );
 };
