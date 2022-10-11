@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=150, unique=True)),
                 ('slug', models.SlugField(allow_unicode=True, max_length=150, unique=True)),
                 ('thumbnail', models.ImageField(upload_to='thumbnails')),
-                ('body', models.TextField()),
+                ('description', models.TextField()),
                 ('read_time', models.IntegerField(blank=True, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('edited_at', models.DateTimeField(auto_now=True)),

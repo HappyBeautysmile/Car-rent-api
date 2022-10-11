@@ -6,7 +6,7 @@ from posts.models import Post, Tag
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    summernote_fields = ('body',)
+    summernote_fields = ('description',)
     list_display = ('title', 'id', 'is_public', 'slug',
                     'author', 'edited_at', 'created_at')
     list_filter = ('is_public', 'created_at', 'edited_at',)

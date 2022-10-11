@@ -5,7 +5,7 @@ import Pagination from "../Pagination";
 import PropTypes from "prop-types";
 
 const initialData = Object.freeze({
-  body: "",
+  description: "",
 });
 
 const Comments = ({ slug }) => {
@@ -59,7 +59,7 @@ const Comments = ({ slug }) => {
 
     connection
       .post(`comments/${slug}/send/`, {
-        body: formData.body,
+        description: formData.description,
       })
       .then(() => {
         setCommentCreated(true);
@@ -80,30 +80,30 @@ const Comments = ({ slug }) => {
       )}
       <>
         <form className="comment-form" onSubmit={handleSubmit} noValidate>
-          <label htmlFor="body">
-            {error.body && <span className="invalid-value">{error.body}</span>}
+          <label htmlFor="description">
+            {error.description && <span className="invalid-value">{error.description}</span>}
             {error.detail && (
               <span className="invalid-value">{error.detail}</span>
             )}
           </label>
           <textarea
-            id="body"
-            name="body"
+            id="description"
+            name="description"
             ref={textarea}
             onChange={handleChange}
             placeholder="Write your own comment here..."
             maxLength="255"
             rows={4}
             style={
-              error.body || countdown
+              error.description || countdown
                 ? { borderColor: "var(--danger)" }
                 : { borderColor: "var(--secondary)" }
             }
           />
-          <p className="info">{formData.body.length} / 255</p>
-          <button className="animated-button" type="submit">
+          <p className="info">{formData.description.length} / 255</p>
+          <button className="animated-button" type="submit" style={{borderRadius:"5px" ,padding:"0:30px",width:"200px"}}>
             <span>
-              <strong>Comment</strong>
+              <strong>Rent</strong>
             </span>
           </button>
         </form>

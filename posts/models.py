@@ -12,7 +12,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         'users.User', on_delete=models.RESTRICT, related_name='posts')
     thumbnail = models.ImageField(upload_to='thumbnails')
-    body = models.TextField()
+    description = models.TextField()
     read_time = models.IntegerField(null=True, blank=True)
     tags = models.ManyToManyField('posts.Tag')
     created_at = models.DateTimeField(auto_now_add=True)

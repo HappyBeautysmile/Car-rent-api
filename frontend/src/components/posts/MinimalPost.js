@@ -5,10 +5,13 @@ import PropTypes from "prop-types";
 
 const MinimalPost = (props) => {
   const date = new Date(props.created_at).toLocaleDateString();
-
+  const imageArea ={
+    width:"80%!important",
+    margin:"0 20%"
+  }
   return (
-    <Link to={`/post/${props.slug}/`} className="item">
-      <img src={props.thumbnail} />
+    <Link to={`/post/${props.slug}/`} style={imageArea}>
+      <img src={props.thumbnail} style={{width:"80%!important"}}/>
       <span>{date}</span>
       <h2>{props.title}</h2>
       <span>
