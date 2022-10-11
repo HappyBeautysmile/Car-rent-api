@@ -8,7 +8,7 @@ from rest_framework_simplejwt.views import (TokenObtainPairView,
                                             TokenRefreshView)
 schema_view = get_schema_view(
     openapi.Info(
-        title="Blog API",
+        title="Rent API",
         default_version='v1',
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="aleklejawa@gmail.com"),
@@ -20,7 +20,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     # Admin
-    path('grappelli/', include('grappelli.urls')),
+    # path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     # API Docs
     path('api/', schema_view.with_ui('redoc',
@@ -28,6 +28,7 @@ urlpatterns = [
     # Apps
     path('api/posts/', include('posts.urls')),
     path('api/comments/', include('comments.urls')),
+    # path('api/rents/', include('rents.urls')),
     path('api/user/', include('users.urls')),
     # Tokens
     path('api/token/', TokenObtainPairView.as_view()),

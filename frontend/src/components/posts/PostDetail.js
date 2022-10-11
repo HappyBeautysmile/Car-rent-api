@@ -84,8 +84,8 @@ const PostDetail = () => {
       <fieldset style={{borderRadius:"5px" ,marginTop:"20px"}} >
         <legend >Description:</legend>
         <div
-          className="post-body" 
-          dangerouslySetInnerHTML={{ __html: `${post.body}` }}
+          className="post-description" 
+          dangerouslySetInnerHTML={{ __html: `${post.description}` }}
         ></div>
 
       </fieldset>
