@@ -9,7 +9,7 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('description',)
     list_display = ('title', 'id', 'is_public', 'slug',
                     'author', 'edited_at', 'created_at', 'rental_start', 'rental_end','available')
-    list_filter = ('is_public', 'available','created_at', 'edited_at',)
+    list_filter = ('is_public', 'available','rental_start', 'rental_end',)
     search_fields = ['title', 'slug', 'author']
     prepopulated_fields = {'slug': ('title',)}
     actions = ['make_public', 'make_unpublic']
