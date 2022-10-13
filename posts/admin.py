@@ -8,8 +8,8 @@ from posts.models import Post, Tag
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('description',)
     list_display = ('title', 'id', 'is_public', 'slug',
-                    'author', 'edited_at', 'created_at', 'rental_start', 'rental_end')
-    list_filter = ('is_public', 'created_at', 'edited_at',)
+                    'author', 'edited_at', 'created_at', 'rental_start', 'rental_end','available')
+    list_filter = ('is_public', 'available','created_at', 'edited_at',)
     search_fields = ['title', 'slug', 'author']
     prepopulated_fields = {'slug': ('title',)}
     actions = ['make_public', 'make_unpublic']

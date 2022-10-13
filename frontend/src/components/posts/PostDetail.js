@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom";
 
 registerLocale('ro', ro)
 
-const Comments = React.lazy(() => import("../comments/Comments"));
 
 const PostDetail = () => {
   const [post, setPost] = useState({});
@@ -77,7 +76,7 @@ const PostDetail = () => {
       <img src={post.thumbnail}  style={{width:"100%" ,height:"100%"}}/>
       <h1>{post.title}</h1>
         <Tags values={post.tags}  />
-      <h3>per day from : <span style={{color:"blue"}}>$ 50 *</span></h3>
+      <h3>per day from : <span style={{color:"blue"}}>$ {post.price}  *</span></h3>
       <div className="post-info">
         <img src={post.author.avatar} className="avatar-medium" />
         <p>
@@ -125,13 +124,7 @@ const PostDetail = () => {
           </button>
       </form>
 
-      <div className="post-comments">
-        <Suspense fallback={<h2>Loading comments...</h2>}>
-          <h2>Rent</h2>
-          <Comments slug={slug} />
-        
-        </Suspense>
-      </div>
+     
     </div>
   );
 };

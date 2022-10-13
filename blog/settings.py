@@ -52,7 +52,6 @@ INSTALLED_APPS = [
 
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
-    'comments.apps.CommentsConfig',
     'frontend.apps.FrontendConfig'
 ]
 
