@@ -40,9 +40,9 @@ const AvatarForm = () => {
       {error.avatar && <span className="invalid-value">{error.avatar}</span>}
 
       <div className="avatar-preview">
-        <img src={avatar.url} className="avatar" />
-        <img src={avatar.url} className="avatar-medium" />
-        <img src={avatar.url} className="avatar-big" />
+        {/* <img src={avatar.url} className="avatar" />
+        <img src={avatar.url} className="avatar-medium" /> */}
+        <img src={avatar.url} className="avatar-big"  />
       </div>
       <label htmlFor="file" className="file-input">
         Upload Avatar

@@ -360,7 +360,7 @@ a {
 .avatar-big {
   width: 128px;
   height: 128px;
-  border: 2px solid var(--secondary);
+  border-radius: 50%!important;
 }
 
 .avatar-preview {
