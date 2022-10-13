@@ -7,6 +7,8 @@ import Tags from "./Tags";
 import connection from "../../connection";
 import DatePicker ,{ registerLocale } from "react-datepicker";
 import ro from 'date-fns/locale/ro';
+import { useHistory } from "react-router-dom";
+
 registerLocale('ro', ro)
 
 const Comments = React.lazy(() => import("../comments/Comments"));
@@ -19,6 +21,7 @@ const PostDetail = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date() );
   const [error, setError] = useState({});
+  const history = useHistory();
 
   useEffect(() => {
     setError({});
@@ -43,14 +46,17 @@ const PostDetail = () => {
     }
     else{
       connection
-      .post(`comments/${slug}/send/`, {
-        body: "Yeah, That's it!",
-      })
-      .then(() => {
-      })
-      .catch((err) => {
-        setError(err.response.data);
-      });
+        .post(`posts/${slug}/rent`,{
+          startDate: startDate,
+          endDate: endDate,
+        })
+        .then(() => {
+          history.push("/");
+        })
+        .catch((err) => {
+          console.log(err.message);
+          setState("error");
+        });
     }
    
   };

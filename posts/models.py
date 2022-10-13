@@ -20,7 +20,7 @@ class Post(models.Model):
     is_public = models.BooleanField(default=False)
     rental_start = models.DateTimeField()
     rental_end = models.DateTimeField()
-    state = models.IntegerField(default=0)
+    available = models.BooleanField()
     objects = PostObjects()
 
     class Meta:

@@ -16,6 +16,7 @@ const Posts = () => {
     connection
       .get("posts/")
       .then((res) => {
+        console.log(res.data);
         setPostsList(res.data);
         setMaxPages(Math.ceil(res.data.length / postsPerPage));
       })

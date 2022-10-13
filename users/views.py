@@ -242,17 +242,16 @@ class ChangeUserDetails(APIView):
     .
     """
     permission_classes = [IsAuthenticated]
-
     def post(self, request: Request, format=None):
         serializer = UserPersonalDetailsSerializer(data=request.data)
-
+        print(serializer)
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
 
         # Stop user from changing personal details too often
         if self.request.session.has_key('details_change'):
             delta = round((self.request.session['details_change'] +
-                           60) - datetime.now().timestamp())
+                           1) - datetime.now().timestamp())
 
             if delta > 0:
                 return Response({'Too Many Requests': f'Please wait {delta} more seconds before doing another request.'}, status=status.HTTP_429_TOO_MANY_REQUESTS)

@@ -12,11 +12,12 @@ class TagSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
+
     author = UserSerializer(read_only=True)
     tags = TagSerializer(read_only=True, many=True)
-
+    # title = serializers.CharField(allow_blank=True)
     class Meta:
         model = Post
         fields = ['title', 'slug', 'author', 'thumbnail',
-                  'description', 'read_time', 'tags', 'created_at', 'rental_start', 'rental_end']
+                  'description', 'read_time', 'tags', 'created_at', 'rental_start', 'rental_end','available']
         read_only_fields = ['author']
